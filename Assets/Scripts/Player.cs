@@ -18,10 +18,13 @@ public class Player : MonoBehaviour
     [Header("Combat")]
     [SerializeField, Range(0f, 1f)] private float fPunchDistance;
     [SerializeField, Range(0f, 100f)] private float fHp;
+    [SerializeField] private int iRevivesCount;
     [Header("Required Objects")]
     [SerializeField] private Transform tCameraAttachPoint;
     [SerializeField] private Transform tRaycastPoint;
     [SerializeField] private TMP_Text tmpCounter;
+    [SerializeField] private TMP_Text reviveCounter;
+    [SerializeField] private Animator damageFX;
 
     private bool bInCombat = false;
     private bool bSprinting = false;
@@ -77,10 +80,15 @@ public class Player : MonoBehaviour
         get => fHp;
         set
         {
+            if (value < fHp)
+                damageFX.SetTrigger("damage");
             fHp = value;
             if (fHp <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                if (iRevivesCount > 0)
+                    PlayRevive();
+                else 
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }
@@ -90,19 +98,24 @@ public class Player : MonoBehaviour
         bCanPunch = true;
     }
 
+    private void PlayRevive()
+    {
+        iRevivesCount--;
+        reviveCounter.text = $"Revive count: {iRevivesCount}";
+    }
+
     private void Damage()
     {
         RaycastHit hit;
         if (Physics.Raycast(tRaycastPoint.position, transform.forward, out hit, fPunchDistance, mask))
         {
             Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-            Debug.Log(hit.collider.name);
+            
             if (enemy != null)
             {
                 enemy.HP -= 1;
             }
         }
-
     }
 
     private void Punch()
@@ -123,6 +136,8 @@ public class Player : MonoBehaviour
 
         animator = GetComponent<Animator>();
         mask = LayerMask.GetMask("Enemy");
+
+        reviveCounter.text = $"Revive count: {iRevivesCount}";
     }
 
     private void OnTriggerEnter(Collider other)
@@ -152,8 +167,12 @@ public class Player : MonoBehaviour
         Vector3 vPlayerRootRotation = new Vector3(0, fMouseOffsetX, 0) * fMouseSens;
 
         vCameraRotationEulers.x = Mathf.Clamp(tCameraAttachPoint.rotation.eulerAngles.x + vCameraRotationEulers.x, fMinRotation, fMaxRotation) - tCameraAttachPoint.rotation.eulerAngles.x;
-        transform.Translate(vMovement);
-        transform.Rotate(vPlayerRootRotation);
-        tCameraAttachPoint.Rotate(vCameraRotationEulers);
+
+        if (bCanPunch)
+        {
+            transform.Translate(vMovement);
+            transform.Rotate(vPlayerRootRotation);
+            tCameraAttachPoint.Rotate(vCameraRotationEulers);
+        }
     }
 }
