@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField, Range(0f, 10f)] private float fTriggerDistance;
     [SerializeField, Range(0f, 10f)] private float fMinDistance;
     [SerializeField, Range(0f, 10f)] private float fHp;
+    [SerializeField, Range(0f, 10f)] private float fCorpseLifetime;
     [Header("Gizmos")]
     [SerializeField] private Color cTriggerColor;
     [SerializeField] private Color cMinDistanceColor;
@@ -41,7 +42,15 @@ public class Enemy : MonoBehaviour
             fHp = value;
             if (fHp <= 0)
             {
-                Destroy(this.gameObject);
+                Destroy(this.gameObject, fCorpseLifetime);
+                RagdollActivator[] activators = transform.GetComponentsInChildren<RagdollActivator>();
+                foreach (RagdollActivator activator in activators)
+                {
+                    activator.Activate();
+                }
+                animator.enabled = false;
+                agent.enabled = false;
+                enabled = false;
             }
         }
     }

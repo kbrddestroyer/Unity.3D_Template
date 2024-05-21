@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
 
     private void Awake()
     {
-       if (player != null)
+       if (player == null)
            player = FindObjectOfType<Player>();
     }
 

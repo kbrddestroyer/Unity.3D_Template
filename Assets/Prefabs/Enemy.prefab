@@ -1778,6 +1778,7 @@ MonoBehaviour:
   fTriggerDistance: 2.9
   fMinDistance: 1.19
   fHp: 2
+  fCorpseLifetime: 5.65
   cTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   cMinDistanceColor: {r: 0, g: 0.11850643, b: 1, a: 1}
 --- !u!195 &4051463579945970904
