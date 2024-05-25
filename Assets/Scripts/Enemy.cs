@@ -13,9 +13,13 @@ public class Enemy : MonoBehaviour
     [SerializeField, Range(0f, 10f)] private float fCorpseLifetime;
     [SerializeField, Range(0f, 10f)] private float fAttackDelay;
     [SerializeField, Range(1f, 10f)] private float fAttackPower;
+    [SerializeField, Range(1f, 10f)] private float fWaypointDelay;
     [Header("Gizmos")]
     [SerializeField] private Color cTriggerColor;
     [SerializeField] private Color cMinDistanceColor;
+
+    private GameObject[] waypoints;
+    private Transform selectedWaypoint;
 
     private Player player;
     private Animator animator;
@@ -91,11 +95,29 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         animator = GetComponent<Animator>();
         player = FindObjectOfType<Player>();
         agent = GetComponent<NavMeshAgent>();
+
+        waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+    }
+
+    private IEnumerator selectWaypoint()
+    {
+        Running = false;
+        yield return new WaitForSeconds(fWaypointDelay);
+        agent.destination = waypoints[Random.Range(0, waypoints.Length)].transform.position;
+        Running = true;
+    }
+
+    private void UpdateWaypointState()
+    {
+        if (Vector3.Distance(agent.destination, transform.position) <= fMinDistance)
+        {
+            if (Running) StartCoroutine(selectWaypoint());
+        }
     }
 
     private void Update()
@@ -115,8 +137,10 @@ public class Enemy : MonoBehaviour
                 agent.destination = player.transform.position;
             }
         }
-
-        else Running = false;
+        else
+        {
+            UpdateWaypointState();
+        }
     }
 
 #if UNITY_EDITOR

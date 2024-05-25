@@ -1727,7 +1727,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!136 &4051463579945970884
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1738,7 +1738,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.91
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -1758,15 +1758,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-    'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-    'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-    'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
-    'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'Idle'\n\tFrom animation
-    clip 'Standing Run Forward'\n\tFrom animation clip 'Idle'\n\tFrom animation clip
-    'Right Hook'\n\tFrom animation clip 'Uppercut'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -1783,12 +1775,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbcdc11f00f17d49900b7c7a7ffc025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fTriggerDistance: 2.9
-  fMinDistance: 1.19
+  fTriggerDistance: 10
+  fMinDistance: 1.98
   fHp: 2
   fCorpseLifetime: 5.65
   fAttackDelay: 2
   fAttackPower: 5
+  fWaypointDelay: 5
   cTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   cMinDistanceColor: {r: 0, g: 0.11850643, b: 1, a: 1}
 --- !u!195 &4051463579945970904
@@ -1800,11 +1793,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 3817039797081628017}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
