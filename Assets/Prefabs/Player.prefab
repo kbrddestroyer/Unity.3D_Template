@@ -704,13 +704,18 @@ MonoBehaviour:
   fRunSpeed: 7.28
   fMouseSensBase: 4
   fMouseSensCombat: 2
+  fHealAmount: 1
   fMinRotation: 0
   fMaxRotation: 75
   fPunchDistance: 1
-  fHp: 10
+  fMaxHp: 10
+  iRevivesCount: 0
   tCameraAttachPoint: {fileID: 1689050716571420767}
   tRaycastPoint: {fileID: 1689050716601773583}
   tmpCounter: {fileID: 0}
+  reviveCounter: {fileID: 0}
+  hpSlider: {fileID: 0}
+  damageFX: {fileID: 0}
 --- !u!1 &2283900190982581126
 GameObject:
   m_ObjectHideFlags: 0

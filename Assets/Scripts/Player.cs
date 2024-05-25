@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,24 +13,27 @@ public class Player : MonoBehaviour
     [SerializeField, Range(0f, 10f)] private float fRunSpeed;
     [SerializeField, Range(0f, 10f)] private float fMouseSensBase;
     [SerializeField, Range(0f, 10f)] private float fMouseSensCombat;
+    [SerializeField, Range(0f, 10f)] private float fHealAmount;
     [Header("Camera")]
     [SerializeField, Range(0f, 90f)] private float fMinRotation;
     [SerializeField, Range(0f, 90f)] private float fMaxRotation;
     [Header("Combat")]
     [SerializeField, Range(0f, 1f)] private float fPunchDistance;
-    [SerializeField, Range(0f, 100f)] private float fHp;
+    [SerializeField, Range(0f, 100f)] private float fMaxHp;
     [SerializeField] private int iRevivesCount;
     [Header("Required Objects")]
     [SerializeField] private Transform tCameraAttachPoint;
     [SerializeField] private Transform tRaycastPoint;
     [SerializeField] private TMP_Text tmpCounter;
     [SerializeField] private TMP_Text reviveCounter;
+    [SerializeField] private Slider hpSlider;
     [SerializeField] private Animator damageFX;
 
     private bool bInCombat = false;
     private bool bSprinting = false;
     private bool bCanPunch = true;
     private int iCollectables = 0;
+    private float fHp = 0;
 
     public int Collectables
     {
@@ -81,8 +85,13 @@ public class Player : MonoBehaviour
         set
         {
             if (value < fHp)
+            {
                 damageFX.SetTrigger("damage");
+                animator.SetTrigger("take_damage");
+                bCanPunch = true;
+            }
             fHp = value;
+            hpSlider.value = Mathf.Clamp(fHp / fMaxHp, 0, 1);
             if (fHp <= 0)
             {
                 if (iRevivesCount > 0)
@@ -129,11 +138,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        HP = fMaxHp;
         animator = GetComponent<Animator>();
         mask = LayerMask.GetMask("Enemy");
 
@@ -167,6 +176,12 @@ public class Player : MonoBehaviour
         Vector3 vPlayerRootRotation = new Vector3(0, fMouseOffsetX, 0) * fMouseSens;
 
         vCameraRotationEulers.x = Mathf.Clamp(tCameraAttachPoint.rotation.eulerAngles.x + vCameraRotationEulers.x, fMinRotation, fMaxRotation) - tCameraAttachPoint.rotation.eulerAngles.x;
+
+        if (iCollectables > 0 && Input.GetKeyDown(KeyCode.E))
+        {
+            iCollectables--;
+            HP += fHealAmount;
+        }
 
         if (bCanPunch)
         {

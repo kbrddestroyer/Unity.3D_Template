@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField, Range(0f, 10f)] private float fMinDistance;
     [SerializeField, Range(0f, 10f)] private float fHp;
     [SerializeField, Range(0f, 10f)] private float fCorpseLifetime;
+    [SerializeField, Range(0f, 10f)] private float fAttackDelay;
+    [SerializeField, Range(1f, 10f)] private float fAttackPower;
     [Header("Gizmos")]
     [SerializeField] private Color cTriggerColor;
     [SerializeField] private Color cMinDistanceColor;
@@ -39,6 +41,11 @@ public class Enemy : MonoBehaviour
         get => fHp;
         set
         {
+            if (fHp > value)
+            {
+                animator.SetTrigger("take_damage");
+                bCanPunch = true;
+            }
             fHp = value;
             if (fHp <= 0)
             {
@@ -55,16 +62,22 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private IEnumerator changeState()
+    {
+        yield return new WaitForSeconds(fAttackDelay);
+        bCanPunch = true;
+    }
+
     public void ExitPunchAnimation()
     {
-        bCanPunch = true;
+        StartCoroutine(changeState());
     }
 
     private void Punch()
     {
         if (bCanPunch)
         {
-            player.HP--;
+            player.HP -= fAttackPower;
             animator.SetInteger("combat_anim", Random.Range(0, 2));
             animator.SetTrigger("combat");
             bCanPunch = false;
@@ -93,7 +106,6 @@ public class Enemy : MonoBehaviour
             {
                 Running = true;
                 agent.destination = player.transform.position;
-                // Run Towards
             }
         }
 

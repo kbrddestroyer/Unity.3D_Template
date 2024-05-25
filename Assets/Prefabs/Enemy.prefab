@@ -1751,14 +1751,22 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3817039797081628017}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: bd992309afa759746a2a5cde6a966fb2, type: 3}
   m_Controller: {fileID: 9100000, guid: 0b01d3551bc59564293faa4629b187bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+    'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
+    'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
+    'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'Idle'\n\tFrom animation
+    clip 'Standing Run Forward'\n\tFrom animation clip 'Idle'\n\tFrom animation clip
+    'Right Hook'\n\tFrom animation clip 'Uppercut'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -1779,6 +1787,8 @@ MonoBehaviour:
   fMinDistance: 1.19
   fHp: 2
   fCorpseLifetime: 5.65
+  fAttackDelay: 2
+  fAttackPower: 5
   cTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   cMinDistanceColor: {r: 0, g: 0.11850643, b: 1, a: 1}
 --- !u!195 &4051463579945970904
