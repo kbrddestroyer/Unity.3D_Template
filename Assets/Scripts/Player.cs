@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     [Header("Combat")]
     [SerializeField, Range(0f, 1f)] private float fPunchDistance;
     [SerializeField, Range(0f, 100f)] private float fMaxHp;
+    [SerializeField, Range(1f, 10f)] private float fAttackPowerMul;
+    [SerializeField, Range(1f, 10f)] private float fAttackPower;
     [SerializeField] private int iRevivesCount;
     [Header("Required Objects")]
     [SerializeField] private Transform tCameraAttachPoint;
@@ -107,10 +109,12 @@ public class Player : MonoBehaviour
         bCanPunch = true;
     }
 
-    private void PlayRevive()
+    public void PlayRevive()
     {
         iRevivesCount--;
         reviveCounter.text = $"Revive count: {iRevivesCount}";
+
+        fAttackPower *= fAttackPowerMul;
     }
 
     private void Damage()
@@ -122,7 +126,7 @@ public class Player : MonoBehaviour
             
             if (enemy != null)
             {
-                enemy.HP -= 1;
+                enemy.HP -= fAttackPower;
             }
         }
     }
@@ -179,7 +183,7 @@ public class Player : MonoBehaviour
 
         if (iCollectables > 0 && Input.GetKeyDown(KeyCode.E))
         {
-            iCollectables--;
+            Collectables--;
             HP += fHealAmount;
         }
 
