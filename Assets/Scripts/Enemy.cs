@@ -73,11 +73,18 @@ public class Enemy : MonoBehaviour
         StartCoroutine(changeState());
     }
 
+    public void Damage()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) > fMinDistance)
+            return;
+
+        player.HP -= fAttackPower;
+    }
+
     private void Punch()
     {
         if (bCanPunch)
         {
-            player.HP -= fAttackPower;
             animator.SetInteger("combat_anim", Random.Range(0, 2));
             animator.SetTrigger("combat");
             bCanPunch = false;

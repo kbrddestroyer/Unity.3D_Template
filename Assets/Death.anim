@@ -448,9 +448,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1.25
-    functionName: PlayRevive
+    functionName: Revive
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: aafa180a2d133fb41be50021aad645b1, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: e5e6e4e6333f5ae4fafbd2932cff2823, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

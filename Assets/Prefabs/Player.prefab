@@ -709,8 +709,8 @@ MonoBehaviour:
   fMaxRotation: 75
   fPunchDistance: 1
   fMaxHp: 10
-  fAttackPowerMul: 1
-  fAttackPower: 5
+  fAttackPowerMul: 2
+  fAttackPower: 1
   iRevivesCount: 0
   tCameraAttachPoint: {fileID: 1689050716571420767}
   tRaycastPoint: {fileID: 1689050716601773583}

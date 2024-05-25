@@ -86,18 +86,19 @@ public class Player : MonoBehaviour
         get => fHp;
         set
         {
-            if (value < fHp)
+            if (value < fHp && value > 0)
             {
                 damageFX.SetTrigger("damage");
                 animator.SetTrigger("take_damage");
-                bCanPunch = true;
             }
+            
+            bCanPunch = true;
             fHp = value;
             hpSlider.value = Mathf.Clamp(fHp / fMaxHp, 0, 1);
             if (fHp <= 0)
             {
                 if (iRevivesCount > 0)
-                    PlayRevive();
+                    StartRevive();
                 else 
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
@@ -109,15 +110,20 @@ public class Player : MonoBehaviour
         bCanPunch = true;
     }
 
+    public void StartRevive()
+    {
+        damageFX.SetTrigger("death");
+    }
+
     public void PlayRevive()
     {
         iRevivesCount--;
         reviveCounter.text = $"Revive count: {iRevivesCount}";
-
+        HP = fMaxHp;
         fAttackPower *= fAttackPowerMul;
     }
 
-    private void Damage()
+    public void Damage()
     {
         RaycastHit hit;
         if (Physics.Raycast(tRaycastPoint.position, transform.forward, out hit, fPunchDistance, mask))
@@ -138,7 +144,6 @@ public class Player : MonoBehaviour
             animator.SetInteger("combat_anim", Random.Range(0, 2));
             animator.SetTrigger("combat");
             bCanPunch = false;
-            Damage();
         }
     }
 

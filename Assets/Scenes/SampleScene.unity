@@ -383,6 +383,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e4ab7c440ddfe64a9e4925cf79ca916, type: 3}
+--- !u!114 &1061113970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1689050716662308391, guid: b9185d9755f04bd46b2d42f17acffc61, type: 3}
+  m_PrefabInstance: {fileID: 1689050717097420166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aafa180a2d133fb41be50021aad645b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1300485648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1300485648, guid: 97c6942420bf7cd498975b2b199d9158, type: 3}
@@ -565,6 +576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5db93e6325024c749aa2663b9998053d, type: 3}
+--- !u!1 &1636696694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2086313277, guid: 97c6942420bf7cd498975b2b199d9158, type: 3}
+  m_PrefabInstance: {fileID: 7674925611128337371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1693283608 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8544577627449070813, guid: 97c6942420bf7cd498975b2b199d9158, type: 3}
@@ -706,6 +722,19 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2086313279, guid: 97c6942420bf7cd498975b2b199d9158, type: 3}
   m_PrefabInstance: {fileID: 7674925611128337371}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2086313283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636696694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e6e4e6333f5ae4fafbd2932cff2823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1061113970}
 --- !u!1001 &301784647946039558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -834,6 +863,10 @@ PrefabInstance:
       propertyPath: reviveCounter
       value: 
       objectReference: {fileID: 1300485648}
+    - target: {fileID: 1689050716662308391, guid: b9185d9755f04bd46b2d42f17acffc61, type: 3}
+      propertyPath: fAttackPowerMul
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1995621834784261569, guid: b9185d9755f04bd46b2d42f17acffc61, type: 3}
       propertyPath: m_Name
       value: Kachujin G Rosales
