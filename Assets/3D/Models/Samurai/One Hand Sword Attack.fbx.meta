@@ -44,7 +44,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -60,14 +60,14 @@ ModelImporter:
       - time: 0.39012682
         functionName: Damage
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: 5fbcdc11f00f17d49900b7c7a7ffc025, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.99949056
+      - time: 0.84324056
         functionName: ExitPunchAnimation
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: 5fbcdc11f00f17d49900b7c7a7ffc025, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

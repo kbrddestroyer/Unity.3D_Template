@@ -437,7 +437,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5323fb1e8df0c37489f00d840c489e13, type: 2}
+  - {fileID: 2100000, guid: 64546d995be3f434c9b75577f730ec5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1573,7 +1573,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5323fb1e8df0c37489f00d840c489e13, type: 2}
+  - {fileID: 2100000, guid: 64546d995be3f434c9b75577f730ec5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1724,9 +1724,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!136 &4051463579945970884
 CapsuleCollider:
@@ -1784,6 +1784,7 @@ MonoBehaviour:
   fWaypointDelay: 5
   cTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   cMinDistanceColor: {r: 0, g: 0.11850643, b: 1, a: 1}
+  bCanPunch: 1
 --- !u!195 &4051463579945970904
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3014,7 +3015,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5323fb1e8df0c37489f00d840c489e13, type: 2}
+  - {fileID: 2100000, guid: 64546d995be3f434c9b75577f730ec5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

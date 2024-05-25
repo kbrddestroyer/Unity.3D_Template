@@ -1,0 +1,94 @@
+# Blender 4.0.2 MTL File: 'самурай.blend'
+# www.blender.org
+
+newmtl Fossil_Desert_Relics_Bones.001
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.474636 0.350258 0.250503
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Material
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/проги/3Dsculpting/курсач/модели/гг/textures/Helmet__Diffuse.png
+map_Ns D:/проги/3Dsculpting/курсач/модели/гг/textures/helmet_Roughness.png
+map_refl D:/проги/3Dsculpting/курсач/модели/гг/textures/helmet_Metallic.png
+map_Bump -bm 7.700000 D:/проги/3Dsculpting/курсач/модели/гг/textures/helmet__NormalOP.png
+
+newmtl Material.001
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Protective_L
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/проги/3Dsculpting/курсач/модели/гг/textures/Protective_L__Diffuse.png
+map_Ns D:/проги/3Dsculpting/курсач/модели/гг/textures/Protective_L_Roughness.png
+map_refl D:/проги/3Dsculpting/курсач/модели/гг/textures/Protective_L_Metallic.png
+map_Bump -bm 4.400000 D:/проги/3Dsculpting/курсач/модели/гг/textures/Protective_L__NormalOP.png
+
+newmtl Red_Leather.001
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Red Leather_BaseColor.tga
+map_Ns C:/Red Leather_Roughness.tga
+map_refl C:/Red Leather_Metallic.tga
+map_Bump -bm 8.200000 C:/Red Leather_Normal.tga
+
+newmtl armo
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/проги/3Dsculpting/курсач/модели/гг/textures/armoL__Diffuse.png
+map_Ns D:/проги/3Dsculpting/курсач/модели/гг/textures/armoL_Roughness.png
+map_refl D:/проги/3Dsculpting/курсач/модели/гг/textures/armoL_Metallic.png
+map_Bump -bm 8.299999 D:/проги/3Dsculpting/курсач/модели/гг/textures/armoL__NormalOP.png
+
+newmtl glovesL
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/проги/3Dsculpting/курсач/модели/гг/textures/glovesL__Diffuse.png
+map_Ns D:/проги/3Dsculpting/курсач/модели/гг/textures/glovesL_Roughness.png
+map_refl D:/проги/3Dsculpting/курсач/модели/гг/textures/glovesL_Metallic.png
+map_Bump -bm 1.000000 D:/проги/3Dsculpting/курсач/модели/гг/textures/glovesL__NormalOP.png
+
+newmtl neiyi
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/проги/3Dsculpting/курсач/модели/гг/textures/neiyi__Diffuse.png
+map_Ns D:/проги/3Dsculpting/курсач/модели/гг/textures/neiyi_Roughness.png
+map_refl D:/проги/3Dsculpting/курсач/модели/гг/textures/neiyi_Metallic.png
+map_Bump -bm 5.400000 D:/проги/3Dsculpting/курсач/модели/гг/textures/neiyi__NormalOP.png

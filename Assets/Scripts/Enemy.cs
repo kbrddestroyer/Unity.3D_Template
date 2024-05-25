@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     private Player player;
     private Animator animator;
     private NavMeshAgent agent;
-    private bool bCanPunch = true;
+    [SerializeField] private bool bCanPunch = true;
 
     private bool bRunning = false;
     private bool Running
@@ -48,9 +48,9 @@ public class Enemy : MonoBehaviour
             if (fHp > value)
             {
                 animator.SetTrigger("take_damage");
-                bCanPunch = true;
             }
             fHp = value;
+            bCanPunch = true;
             if (fHp <= 0)
             {
                 Destroy(this.gameObject, fCorpseLifetime);
@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour
 
     public void ExitPunchAnimation()
     {
+        Debug.LogWarning("Exit animation");
         StartCoroutine(changeState());
     }
 
@@ -89,9 +90,9 @@ public class Enemy : MonoBehaviour
     {
         if (bCanPunch)
         {
+            bCanPunch = false;
             animator.SetInteger("combat_anim", Random.Range(0, 2));
             animator.SetTrigger("combat");
-            bCanPunch = false;
         }
     }
 
@@ -126,6 +127,7 @@ public class Enemy : MonoBehaviour
 
         if (distance <= fTriggerDistance)
         {
+            agent.destination = transform.position;
             if (distance <= fMinDistance)
             {
                 Punch();
