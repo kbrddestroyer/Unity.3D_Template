@@ -75,7 +75,6 @@ public class Enemy : MonoBehaviour
     public void ExitPunchAnimation()
     {
         Debug.LogWarning("Exit animation");
-        StartCoroutine(changeState());
     }
 
     public void Damage()
@@ -91,6 +90,7 @@ public class Enemy : MonoBehaviour
         if (bCanPunch)
         {
             bCanPunch = false;
+            StartCoroutine(changeState());
             animator.SetInteger("combat_anim", Random.Range(0, 2));
             animator.SetTrigger("combat");
         }

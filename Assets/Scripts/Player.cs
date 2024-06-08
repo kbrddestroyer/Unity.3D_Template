@@ -33,9 +33,11 @@ public class Player : MonoBehaviour
 
     private bool bInCombat = false;
     private bool bSprinting = false;
+    private bool bImmune = false;
     private bool bCanPunch = true;
     private int iCollectables = 0;
     private float fHp = 0;
+
 
     public int Collectables
     {
@@ -78,7 +80,7 @@ public class Player : MonoBehaviour
 
     private float fSpeed
     {
-        get => (bSprinting) ? fRunSpeed : fWalkSpeed;
+        get => (bSprinting || bImmune) ? fRunSpeed : fWalkSpeed;
     }
 
     public float HP
@@ -86,6 +88,9 @@ public class Player : MonoBehaviour
         get => fHp;
         set
         {
+            if (bImmune)
+                return;
+
             if (value < fHp && value > 0)
             {
                 damageFX.SetTrigger("damage");
@@ -164,6 +169,11 @@ public class Player : MonoBehaviour
         if (collectable != null) collectable.Collect(this);
     }
 
+    public void ExitDash()
+    {
+        bImmune = false;
+    }
+
     private void Update()
     {
         IsSprinting = Input.GetKey(KeyCode.LeftShift);
@@ -190,6 +200,11 @@ public class Player : MonoBehaviour
         {
             Collectables--;
             HP += fHealAmount;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && vMovement.magnitude > 0) { 
+            bImmune = true;
+            animator.SetTrigger("dash");
         }
 
         if (bCanPunch)
